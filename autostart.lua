@@ -22,19 +22,6 @@ print("Checking Updates...")
 print("Downloading Files...")
 
 result = superlib.downloadFile("https://raw.githubusercontent.com/doktorbit/OC_Control/master/lib/superlib.lua", "/lib/superlib.lua")
-if not result == nil then
-	print("... superlib.lua SUCCESSFUL")
-	superlib = require("superlib")
-else
-	error("... superlib.lua FAILED")
-	return
-end
 result = superlib.downloadFile("https://raw.githubusercontent.com/doktorbit/OC_Control/master/programs/r_control/r_control.lua", "/r_control.lua")
-if not result == nil then
-	print("... r_control.lua SUCCESSFUL")
-else
-	error("... r_control.lua FAILED")
-	return
-end
 
 local result, reason = os.execute("/r_control.lua")
