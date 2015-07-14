@@ -47,10 +47,10 @@ end
 function m.downloadFile(url, path)
   assert("internet")
   local success, response = pcall(downloadFile, url, path)
+  print(response.." "..success)
   if not success then
     return nil
   end
-  print(response.." "..success)
   return response
 end
 
