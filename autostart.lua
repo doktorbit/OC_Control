@@ -3,7 +3,7 @@ local term = require("term")
 local fs = require("filesystem")
 local gpu = component.gpu
 local wget = loadfile("/bin/wget.lua")
-local superlib = loadfile("/lib/superlib.lua")
+local superlib = require("superlib")
 
 term.clear()
 print("Auto start Program...")
