@@ -10,12 +10,6 @@ if not superlib then
   return
 end
 
-term.clear()
-
-for i in pairs(superlib) do
-  print(i)
-end
-
 print("Auto start Program...")
 
 if not component.isAvailable("internet") then
@@ -25,13 +19,8 @@ end
 
 local internet = require("internet")
 
-print("Checking Updates...")
---superlib_version = superlib.getVersion()
---versions = superlib.checkVersions()
-
 print("Downloading Files...")
 
---result = superlib.downloadFile("https://raw.githubusercontent.com/doktorbit/OC_Control/master/lib/superlib.lua", "/lib/superlib.lua")
 result = superlib.downloadFile("https://raw.githubusercontent.com/doktorbit/OC_Control/master/programs/r_control/r_control.lua", "/r_control.lua")
 
-local result, reason = os.execute("/r_control.lua")
+local result, reason = os.execute("/r_control.lua -s")
