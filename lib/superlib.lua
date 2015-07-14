@@ -9,7 +9,7 @@ local event = require("event")
 local io = require("io")
 local string = require("string")
 local text = require("text")
-local wget = loadfile("/bin/wget")
+local wget = loadfile("/bin/wget.lua")
 
 if component.isAvailable("internet") then
   internet = true
