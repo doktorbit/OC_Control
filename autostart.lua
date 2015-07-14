@@ -5,12 +5,17 @@ local gpu = component.gpu
 local wget = loadfile("/bin/wget.lua")
 local superlib = require("superlib")
 
+if not superlib then
+  error("ERROR")
+  return
+end
+
 term.clear()
 print("Auto start Program...")
 
 if not component.isAvailable("internet") then
-	error("Failed: Internet Modul!")
-	return
+  error("Failed: Internet Modul!")
+  return
 end
 
 local internet = require("internet")
