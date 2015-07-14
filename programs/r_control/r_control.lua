@@ -1,3 +1,24 @@
+--[[
+Simple BigReactors Reactor Control program
+Usage:
+  Reactor producing RF:
+    bigreactors-control [-s] [turnOn [, turnOff] ]
+  -s makes the program not print anything to the screen; will automatically enable this option if there is no screen and GPU available
+  Optional arguments are turnOn and turnOff, allowing you to specify when to turn the reactor on and when to turn it off. Default values are 0.1 and 0.9
+  If you have turbines connected to the computer and the reactor is in steam-producing mode, it will automatically detect that.
+  In turbine mode, it will try to keep the turbines at a certain speed.
+    bigreactors-control [-s] [-b] [desiredSpeed [, acceptedSpeed] ]
+  desiredSpeed then allows you to set the desired rotations per minute. it will default to 1790.
+  acceptedSpeed is the amount the turbine's rotation speed may vary from the desired speed before the program starts reacting. Defaults to 50.
+  -b will make the program run the reactor at 100% for a few seconds to find out how much it can produce at most and will then set the control rods to
+  make the reactor only produce as much steam as needed. Make sure to extract all steam from the reactor while the evaluation is running,
+  otherwise it might not find the best possible value! If it is not possible to extract all steam, you should consider running the program without -b
+  and manually set the control rods.
+Author: Vexatos
+]]
+
+--These are the values everyone needs to set for themselves
+
 --Default 0.1 - Turn on when equal to or below 10%
 local turnOn = 0.1
 --Default 0.9 - Turn off when equal to or above 90%
@@ -12,6 +33,10 @@ local desiredSpeed = 1790
 local acceptedSpeed = 50
 --The amount of steam one turbine can take per tick, in milibuckets
 local neededSteam = 2000
+
+
+--Code you probably won't need to change starts here
+
 
 --Loading the required libraries
 local component = require("component")
@@ -52,6 +77,8 @@ end
 
 --Getting the primary port
 local reactor = component.br_reactor
+
+local turbines = {}
 
 if reactor.isActivelyCooled() then
   if not component.isAvailable("br_turbine") then
