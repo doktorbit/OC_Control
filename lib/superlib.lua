@@ -57,4 +57,5 @@ function m.download(url)
 	end
 	return response
 end
-	
+
+return m
