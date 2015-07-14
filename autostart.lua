@@ -23,4 +23,4 @@ print("Downloading Files...")
 
 result = superlib.downloadFile("https://raw.githubusercontent.com/doktorbit/OC_Control/master/programs/r_control/r_control.lua", "/r_control.lua")
 
-local result, reason = os.execute("/r_control.lua -s")
+local result, reason = os.execute("/r_control.lua")
