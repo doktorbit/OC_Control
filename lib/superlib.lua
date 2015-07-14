@@ -54,7 +54,6 @@ function m.downloadFile(url, path)
 end
 
 function m.download(url)
-	assert("internet")
 	local success, response = pcall(downloadRaw, url)
 	if not success then
 		return nil
