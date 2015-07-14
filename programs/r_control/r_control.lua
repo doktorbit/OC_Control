@@ -5,6 +5,6 @@ local term = require("term")
 local fs = require("filesystem")
 local gpu = component.gpu
 local wget = loadfile("/bin/wget.lua")
-local superlib = require("superlib")
+local superlib = loadfile("/lib/superlib.lua")
 
 print("HALLO :)")
