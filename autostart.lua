@@ -10,11 +10,12 @@ if not superlib then
   return
 end
 
+term.clear()
+
 for i in pairs(superlib) do
   print(i)
 end
 
-term.clear()
 print("Auto start Program...")
 
 if not component.isAvailable("internet") then
