@@ -1,6 +1,7 @@
-local version = "0.0.1"
+local version = "0.0.2"
 local m = {}
 
+local component = require("component")
 local internet = require("internet")
 local term = require("term")
 local keyboard = require("keyboard")
