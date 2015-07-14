@@ -38,12 +38,14 @@ function m.getVersion()
 end
 
 function m.checkVersion()
+	assert("internet")
 	response = downloadFile("https://raw.githubusercontent.com/OC_Control/doktorbit/master/versions.lua", "/tmp/versions.lua")
 	versions = loadFile("/tmp/versions.lua")
 	return versions, version
 end
 
 function m.downloadFile(url, path)
+	assert("internet")
 	local success, response = pcall(downloadFile, url, path)
 	if not success then
 		return nil
@@ -52,6 +54,7 @@ function m.downloadFile(url, path)
 end
 
 function m.download(url)
+	assert("internet")
 	local success, response = pcall(downloadRaw, url)
 	if not success then
 		return nil
