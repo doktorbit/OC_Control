@@ -50,6 +50,7 @@ function m.downloadFile(url, path)
   if not success then
     return nil
   end
+  print(response.." "..success)
   return response
 end
 
