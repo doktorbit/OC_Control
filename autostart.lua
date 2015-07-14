@@ -22,7 +22,7 @@ print("Checking Updates...")
 print("Downloading Files...")
 
 result = superlib.downloadFile("https://raw.githubusercontent.com/doktorbit/OC_Control/master/lib/superlib.lua", "/lib/superlib.lua")
-if result == true then
+if not result == nil then
 	print("... superlib.lua SUCCESSFUL")
 	superlib = require("superlib")
 else
@@ -30,7 +30,7 @@ else
 	return
 end
 result = superlib.downloadFile("https://raw.githubusercontent.com/doktorbit/OC_Control/master/programs/r_control/r_control.lua", "/r_control.lua")
-if result == true then
+if not result == nil then
 	print("... r_control.lua SUCCESSFUL")
 else
 	error("... r_control.lua FAILED")
